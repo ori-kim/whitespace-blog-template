@@ -12,14 +12,9 @@ const { src, alt } = Astro.props;
 
 const isValidCaption = alt && Number.isInteger(+alt[0]) === false;
 
+const isExternalImage = src.startsWith('http://') || src.startsWith('https://');
+
 const getImageBuffer = async (src: string) => {
-  const isExternalImage = src.startsWith('https');
-
-  if (isExternalImage) {
-    const res = await fetch(src);
-    return Buffer.from(await res.arrayBuffer());
-  }
-
   if (src.startsWith('/')) {
     src = src.slice(1);
   }
@@ -29,17 +24,28 @@ const getImageBuffer = async (src: string) => {
   return Buffer.from(file);
 };
 
-const imageBuffer = await getImageBuffer(src);
-const {
-  metadata: { width, height },
-  css,
-} = await getPlaiceholder(imageBuffer);
+let width: number | undefined;
+let height: number | undefined;
+let css: { backgroundImage: string; backgroundSize: string } | undefined;
+
+// Only generate placeholder for local images
+if (!isExternalImage) {
+  try {
+    const imageBuffer = await getImageBuffer(src);
+    const placeholder = await getPlaiceholder(imageBuffer);
+    width = placeholder.metadata.width;
+    height = placeholder.metadata.height;
+    css = placeholder.css;
+  } catch (error) {
+    console.warn(`Failed to generate placeholder for ${src}:`, error);
+  }
+}
 ---
 
 <figure>
-  <div class="relative inline-block overflow-hidden rounded-md">
-    <div style={css} class="absolute inset-0 -z-10 blur-2xl filter"></div>
-    <img {src} {alt} {width} {height} />
+  <div class="relative inline-block overflow-hidden rounded-md shadow-md">
+    {css && <div style={css} class="absolute inset-0 -z-10 blur-2xl filter"></div>}
+    <img {src} {alt} {width} {height} class="" />
   </div>
   {isValidCaption && <figcaption>{alt}</figcaption>}
 </figure>
@@ -58,12 +64,31 @@ const {
   document.addEventListener('astro:after-swap', initImageLoad);
 </script>
 
-<style>
-  figure {
+<style is:global>
+  .mdx figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
     animation: fadeIn 0.2s ease-out;
   }
-  img.loaded {
+
+  .mdx figure img {
+    border-radius: 0.375rem;
+  }
+
+  .mdx figure img.loaded {
     animation: fadeIn 0.2s ease-out;
+  }
+
+  .mdx figure figcaption {
+    display: block;
+    text-align: center;
+    font-size: 0.875rem;
+    color: rgb(107 114 128);
+    max-width: 100%;
+    line-height: 1.5;
   }
 
   @keyframes fadeIn {

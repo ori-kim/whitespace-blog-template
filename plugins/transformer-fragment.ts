@@ -33,11 +33,7 @@ export function transformerFragment(): ShikiTransformer {
       }
 
       root.children = [
-        createFragmentElement(
-          title && createTitleElement(title),
-          preElement,
-          caption && createCaptionElement(caption),
-        ),
+        createFragmentElement(title && createTitleElement(title), preElement, caption && createCaptionElement(caption)),
       ];
       return root;
     },

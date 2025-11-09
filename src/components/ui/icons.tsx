@@ -1,14 +1,7 @@
 import type { SVGProps } from 'react';
 
 export const BlueskyIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    role="img"
-    width="1em"
-    height="1em"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg role="img" width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>Bluesky</title>
     <path
       fill="currentColor"
@@ -18,14 +11,7 @@ export const BlueskyIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export const XformerlyTwitterIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    role="img"
-    width="1em"
-    height="1em"
-    viewBox="0 0 1200 1227"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg role="img" width="1em" height="1em" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>XformerlyTwitter</title>
     <path
       fill="currentColor"
@@ -52,14 +38,7 @@ export const LinkedInIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export const RedditIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    role="img"
-    width="1em"
-    height="1em"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg role="img" width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>Reddit</title>
     <path
       fill="currentColor"
@@ -70,13 +49,7 @@ export const RedditIcon = (props: SVGProps<SVGSVGElement>) => (
 
 export function LinkIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         fill="currentColor"
         d="M19.739 4.261a6.867 6.867 0 0 0-9.711 0l-.72.721a.75.75 0 0 0 1.06 1.06l.72-.72a5.367 5.367 0 1 1 7.59 7.59l-.72.72a.75.75 0 0 0 1.06 1.06l.72-.72a6.867 6.867 0 0 0 0-9.71M6.043 9.307a.75.75 0 0 1 0 1.06l-.721.722a5.367 5.367 0 1 0 7.59 7.59l.72-.722a.75.75 0 0 1 1.06 1.06l-.72.722a6.867 6.867 0 0 1-9.71-9.711l.72-.72a.75.75 0 0 1 1.06 0"
@@ -91,31 +64,15 @@ export function LinkIcon(props: SVGProps<SVGSVGElement>) {
 
 export function MaterialCheckIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        fill="currentColor"
-        d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z"
-      ></path>
+    <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z"></path>
     </svg>
   );
 }
 
 export function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      role="img"
-      viewBox="0 0 24 24"
-      width="1em"
-      height="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg role="img" viewBox="0 0 24 24" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>GitHub</title>
       <path
         fill="currentColor"
@@ -127,13 +84,7 @@ export function GithubIcon(props: SVGProps<SVGSVGElement>) {
 
 export function EmailIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill="currentColor"
@@ -145,14 +96,7 @@ export function EmailIcon(props: SVGProps<SVGSVGElement>) {
 
 export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      role="img"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg role="img" width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <title>Instagram</title>
       <path
         fill="currentColor"
@@ -164,13 +108,7 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
 
 export function BackIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       {/* Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ */}
       <path
         fill="currentColor"
@@ -189,13 +127,7 @@ export function BackIcon(props: SVGProps<SVGSVGElement>) {
 
 export function CloseIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill="currentColor"

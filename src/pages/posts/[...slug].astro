@@ -9,7 +9,7 @@ export async function getStaticPaths() {
     const relatedPosts = getRelatedPosts(post, posts);
 
     return {
-      params: { slug: post.slug },
+      params: { slug: post.data.slug },
       props: {
         post,
         prevPost: posts[i + 1],

@@ -1,8 +1,9 @@
-import { defineCollection } from 'astro:content';
-import { postSchema } from '~/lib/types';
+import { defineCollection } from "astro:content";
+import { postSchema } from "~/lib/types";
+import { glob } from "astro/loaders";
 
 const postsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "content/posts" }),
   schema: postSchema,
 });
 

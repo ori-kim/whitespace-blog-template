@@ -3,7 +3,7 @@ import getReadingTime from 'reading-time';
 
 // @see https://docs.astro.build/en/recipes/reading-time/
 export function remarkReadingTime() {
-  return function (tree, { data }) {
+  return (tree, { data }) => {
     const textOnPage = toString(tree);
     const readingTime = getReadingTime(textOnPage);
     // readingTime.text will give us minutes read as a friendly string,

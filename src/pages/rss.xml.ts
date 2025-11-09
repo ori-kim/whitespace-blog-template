@@ -1,7 +1,7 @@
-import rss from '@astrojs/rss';
-import type { APIRoute } from 'astro';
-import { cfg } from '~/cfg';
-import { getPostsCollection } from '~/lib/mdx/post';
+import rss from "@astrojs/rss";
+import type { APIRoute } from "astro";
+import { cfg } from "~/cfg";
+import { getPostsCollection } from "~/lib/mdx/post";
 
 export const GET: APIRoute = async () => {
   const postList = await getPostsCollection();
@@ -15,7 +15,7 @@ export const GET: APIRoute = async () => {
       return {
         title: post.data.title,
         description: post.data.description,
-        link: `/posts/${post.slug}`,
+        link: `/posts/${post.data.slug}`,
       };
     }),
   });

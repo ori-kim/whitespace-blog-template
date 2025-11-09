@@ -1,13 +1,6 @@
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-export const isProd = import.meta.env.PROD;
-export const isDev = import.meta.env.DEV;
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export function getRootCssVar(name: string) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name);
+  return twMerge(clsx(inputs))
 }

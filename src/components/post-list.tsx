@@ -1,8 +1,8 @@
-import { format } from 'date-fns';
-import { useState } from 'react';
-import { CloseIcon } from '~/components/ui/icons';
-import type { PostData } from '~/lib/types';
-import { cn } from '~/lib/utils';
+import { format } from "date-fns";
+import { useState } from "react";
+import { CloseIcon } from "~/components/ui/icons";
+import type { PostData } from "~/lib/types";
+import { cn } from "~/lib/utils";
 
 export default function PostList({
   posts,
@@ -57,10 +57,11 @@ function TagFilter({
         {tags.map((tag) => (
           <div key={tag} className="inline-block">
             <button
+              type="button"
               className={cn(
-                'link group-hover:opacity-60 hover:opacity-100!',
-                hasSelected && selectedTag === tag && 'opacity-100!',
-                hasSelected && selectedTag !== tag && 'opacity-40!',
+                "link group-hover:opacity-60 hover:opacity-100!",
+                hasSelected && selectedTag === tag && "opacity-100!",
+                hasSelected && selectedTag !== tag && "opacity-40!"
               )}
               onClick={() => handleSelectTag(tag)}
             >
@@ -70,6 +71,7 @@ function TagFilter({
         ))}
         {hasSelected && (
           <button
+            type="button"
             className="text-text-2 hover:text-text-1 p-1 transition"
             onClick={() => setSelectedTag(undefined)}
           >
@@ -84,11 +86,11 @@ function TagFilter({
 function PostYearList({ posts }: { posts: PostData[] }) {
   const yearList = Object.entries(
     posts.reduce<{ [year: string]: PostData[] }>((ac, post) => {
-      const year = new Date(post.data.date).getFullYear();
+      const year = new Date(post.data.created).getFullYear();
       if (!ac[year]) ac[year] = [];
       ac[year].push(post);
       return ac;
-    }, {}),
+    }, {})
   ).sort(([yearA], [yearB]) => +yearB - +yearA);
 
   return (
@@ -104,14 +106,14 @@ function PostYearList({ posts }: { posts: PostData[] }) {
             <ul className="flex flex-col items-start gap-2">
               {postList.map((post) => {
                 return (
-                  <li key={post.slug}>
+                  <li key={post.data.slug}>
                     <a
-                      href={`/posts/${post.slug}`}
+                      href={`/posts/${post.data.slug}`}
                       className="hover:bg-gray-soft -mx-1 flex items-center gap-2 rounded-md px-1 transition group-hover:opacity-60 hover:opacity-100!"
                     >
                       <span className="text-text-1">{post.data.title}</span>
                       <span className="text-text-2 shrink-0 text-sm">
-                        {format(new Date(post.data.date), 'MM. dd.')}
+                        {format(new Date(post.data.created), "MM. dd.")}
                       </span>
                     </a>
                   </li>

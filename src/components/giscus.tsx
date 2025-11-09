@@ -10,27 +10,18 @@ export const changeGiscusTheme = (theme: string) => {
   const giscusTheme = giscusThemes[theme as keyof typeof giscusThemes];
   if (!giscusTheme) return;
 
-  const iframe = document.querySelector<HTMLIFrameElement>(
-    'iframe.giscus-frame',
-  );
+  const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
 
   // @see https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#isetconfigmessage
   const giscusConfig = {
     theme: giscusTheme,
   };
-  iframe?.contentWindow?.postMessage(
-    { giscus: { setConfig: giscusConfig } },
-    'https://giscus.app',
-  );
+  iframe?.contentWindow?.postMessage({ giscus: { setConfig: giscusConfig } }, 'https://giscus.app');
 };
 
-export const GiscusSection = ({
-  giscus,
-  ...props
-}: React.HTMLAttributes<HTMLElement> & { giscus: GiscusSchema }) => {
+export const GiscusSection = ({ giscus, ...props }: React.HTMLAttributes<HTMLElement> & { giscus: GiscusSchema }) => {
   useEffect(() => {
-    const theme: keyof typeof giscusThemes =
-      document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const theme: keyof typeof giscusThemes = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 
     const giscusAttributes = {
       src: 'https://giscus.app/client.js',
@@ -50,13 +41,9 @@ export const GiscusSection = ({
     };
 
     const giscusScript = document.createElement('script');
-    Object.entries(giscusAttributes).forEach(([key, value]) =>
-      giscusScript.setAttribute(key, value),
-    );
+    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
     document.querySelector('#giscus')?.appendChild(giscusScript);
   }, []);
 
-  return (
-    <section {...props} style={{ minHeight: '372px' }} id="giscus"></section>
-  );
+  return <section {...props} style={{ minHeight: '372px' }} id="giscus"></section>;
 };

@@ -1,6 +1,6 @@
-import mdx from '@astrojs/mdx';
-import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
@@ -8,23 +8,24 @@ import {
   transformerNotationErrorLevel,
   transformerNotationFocus,
   transformerNotationHighlight,
-} from '@shikijs/transformers';
-import { transformerTwoslash } from '@shikijs/twoslash';
-import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeExternalLinks from 'rehype-external-links';
-import rehypeSlug from 'rehype-slug';
-import remarkBreaks from 'remark-breaks';
+} from "@shikijs/transformers";
+import { transformerTwoslash } from "@shikijs/twoslash";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeSlug from "rehype-slug";
+import remarkBreaks from "remark-breaks";
 
-import { remarkReadingTime } from './plugins/remark-reading-time.mjs';
-import { transformerFragment } from './plugins/transformer-fragment';
-import { cfg } from './src/cfg';
+import { remarkReadingTime } from "./plugins/remark-reading-time.mjs";
+import { transformerFragment } from "./plugins/transformer-fragment";
+import { cfg } from "./src/cfg";
 
 // https://astro.build/config
 export default defineConfig({
   site: cfg.siteUrl,
-  output: 'static',
+  output: "static",
+  srcDir: "./src",
   vite: {
     plugins: [tailwindcss()],
   },
@@ -35,8 +36,8 @@ export default defineConfig({
       shikiConfig: {
         defaultColor: false,
         themes: {
-          light: 'github-light-default',
-          dark: 'github-dark-default',
+          light: "github-light-default",
+          dark: "github-dark-default",
         },
         transformers: [
           transformerTwoslash({
@@ -57,9 +58,9 @@ export default defineConfig({
         [
           rehypeAutolinkHeadings,
           {
-            behavior: 'wrap',
+            behavior: "wrap",
             properties: {
-              className: ['anchor'],
+              className: ["anchor"],
             },
           },
         ],
@@ -67,10 +68,10 @@ export default defineConfig({
           rehypeExternalLinks,
           {
             properties: {
-              class: 'external link',
+              class: "external link",
             },
-            target: '_blank',
-            rel: ['noopener noreferrer'],
+            target: "_blank",
+            rel: ["noopener noreferrer"],
           },
         ],
       ],

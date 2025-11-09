@@ -1,0 +1,280 @@
+---
+title: "whitespace-blog-template"
+description: "whitespace-blog-template 사용"
+image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg"
+created: 2024-11-16 16:19:26
+updated: 2024-11-16 16:19:26
+draft: false
+tags:
+  - markdown
+slug: whitespace-blog-template
+---
+
+# 감사의 말
+
+이 블로그는 [whitespace-blog-template](https://github.com/bepyan/whitespace-blog-template)를 사용해 구성하고 있습니다.
+늘 즐겁게 살펴보던 블로그의 테마가 MIT로 출시되어 기쁩니다.
+
+<hr />
+
+# 제목 1
+
+마크다운 문서 작성 시 다양한 기능을 활용할 수 있습니다. 이 문서는 **텍스트 강조**, _기울임체_, 링크, 이미지 등 마크다운의 주요 기능들을 소개합니다.
+
+블로그 포스트를 작성할 때 이러한 마크다운 문법을 활용하면 더욱 풍부한 콘텐츠를 만들 수 있습니다. 코드 블록, 표, 인용구 등도 쉽게 작성할 수 있습니다.
+
+## 제목 2
+
+마크다운은 간단하면서도 강력한 문법을 제공합니다. 제목부터 목록, 링크, 이미지까지 다양한 요소를 쉽게 작성할 수 있습니다. 개발자들이 선호하는 문서 작성 도구이기도 합니다.
+
+### 제목 3
+
+중첩된 제목을 사용하여 문서의 계층 구조를 명확하게 표현할 수 있습니다.
+각 섹션별로 내용을 체계적으로 정리할 수 있습니다.
+
+#### 제목 4
+
+더 세부적인 내용을 다룰 때 4단계 제목을 활용할 수 있습니다.
+
+## 텍스트 서식
+
+**굵게**
+_기울임체_
+**_굵게 + 기울임체_**
+~~취소선~~
+
+## 링크
+
+[의미있는 설명](https://roneo.org/markdown)
+
+[참조 텍스트]: https://jamstack.club
+[이 링크]: https://roneo.org/markdown
+
+[임의의 텍스트][random-identifier].
+마우스를 올려보면 제목을 볼 수 있습니다.
+여러 문법이 허용됩니다:
+[첫 번째](https://eff.org "첫 번째 사이트")
+[두 번째](https://example.com "두 번째 사이트")
+[세 번째](https://example.com "세 번째 사이트")
+
+[random-identifier]: https://roneo.org/markdown "이 예제는 제목이 있습니다"
+
+저는 **[EFF](https://eff.org)**를 지지합니다.
+이것은 *[마크다운 가이드](https://www.markdownguide.org)*입니다.
+
+[`코드`](#code) 섹션을 참고하세요.
+
+## 목록
+
+**순서 없는 목록**
+
+- 첫 번째 항목
+- 두 번째 항목
+  - 들여쓴 항목
+  - 들여쓴 항목
+- 세 번째 항목
+
+**순서 있는 목록**
+
+1. 커피
+2. 차
+3. 우유
+
+### 인용구
+
+> 첫 번째 레벨
+>
+> > 두 번째 레벨
+
+> **마크다운**을 _인용구 안에서도_ 사용할 수 있습니다
+>
+> 1. 첫 번째 목록 항목입니다.
+> 2. 두 번째 목록 항목입니다.
+>
+> - ~~취소선~~
+>
+> 예제 `코드`입니다:
+>
+> ```shell
+> echo "안녕하세요"
+> ```
+
+## 코드 서식
+
+`인라인 코드`
+
+```
+일반 텍스트
+```
+
+```ts title="차이점 표시"
+console.log("잘못된 코드"); // [!code --]
+console.log("올바른 코드"); // [!code ++]
+console.log("안녕");
+```
+
+```ts title="포커스"
+console.log("포커스 안됨");
+console.log("포커스됨"); // [!code focus]
+console.log("포커스 안됨");
+```
+
+```ts title="하이라이트"
+console.log("오류나 경고 없음");
+console.error("에러"); // [!code error]
+console.warn("경고"); // [!code warning]
+console.log("하이라이트됨"); // [!code highlight]
+```
+
+```js /안녕/ title="단어 하이라이트"
+const msg = "안녕하세요";
+console.log(msg);
+console.log(msg); // 안녕하세요 출력
+```
+
+```tsx twoslash title="타입 정보" caption="이 코드 블록은 커스텀 캡션이 있습니다."
+// @errors: 2540
+interface Todo {
+  title: string;
+}
+
+const todo: Readonly<Todo> = {
+  title: "비활성 사용자 삭제".toUpperCase(),
+  //  ^?
+};
+
+todo.title = "안녕";
+
+Number.parseInt("123", 10);
+//      ^|
+//
+//
+```
+
+## 이미지
+
+![제목이 있는 이미지](https://placehold.co/600x400)
+
+[이미지 플레이스홀더 자세히 보기](/posts/image-placeholder)
+
+## 표
+
+| 문법 | 설명   |
+| ---- | ------ |
+| 헤더 | 제목   |
+| 문단 | 텍스트 |
+
+-표의 텍스트 정렬-
+
+| 문법 |  설명  | 테스트 텍스트 |
+| :--- | :----: | ------------: |
+| 헤더 |  제목  | 여기 있습니다 |
+| 문단 | 텍스트 |  더 많은 내용 |
+
+---
+
+# 이미지 플레이스홀더
+
+[plaiceholder](https://plaiceholder.co/docs)를 사용하여 멋진 이미지 프리로드 플레이스홀더를 구현했습니다.
+무거운 이미지를 로드할 때 유용합니다.
+
+레이아웃 시프트 없음, 깜빡임 없음, **완벽**합니다 ☁︎.
+
+`cmd + shift + R`을 눌러 재시도해보세요.
+
+![Photo from Unsplash](https://images.unsplash.com/photo-1621961458348-f013d219b50c?auto=format&fit=crop&w=2850&q=80)
+
+![Photo from Unsplash](https://images.unsplash.com/photo-1731251401742-cf6a8353baa9?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+---
+
+# Astro에서 관련 포스트 생성하기
+
+Astro로 작업하는 개발자로서, 저는 최근 간단하면서도 효과적인 접근 방식을 사용하여 블로그에 관련 포스트 기능을 구현했습니다. 이 구현은 태그 매칭과 제목 유사도를 결합하여 의미있는 콘텐츠 추천을 생성합니다.
+
+## 구현 개요
+
+핵심 기능은 두 가지 주요 구성 요소에 의존합니다: 태그 매칭과 제목 유사도 비교입니다. 다음은 관련 포스트 생성을 처리하는 주요 함수입니다:
+
+```ts
+import { type CollectionEntry } from "astro:content";
+
+export const getRelatedPosts = (
+  post: CollectionEntry<"posts">,
+  postList: CollectionEntry<"posts">[]
+) => {
+  return postList
+    .filter((p) => p.data.slug !== post.data.slug)
+    .map((p) => {
+      const tagPoint = post.data.tags
+        ? post.data.tags.filter((tag) => p.data.tags?.includes(tag)).length
+        : 0;
+      const titlePoint = compareTwoStrings(post.data.title, p.data.title);
+      return {
+        post: p,
+        similarity: tagPoint + 3.0 * titlePoint, // [!code highlight]
+      };
+    })
+    .toSorted((a, b) => b.similarity - a.similarity)
+    .map((p) => p.post)
+    .slice(0, 4);
+};
+```
+
+알고리즘은 두 가지 요소를 기반으로 유사도 점수를 계산합니다: 일치하는 태그의 수와 제목 유사도입니다. 제목 유사도는 콘텐츠 관련성을 강조하기 위해 최종 계산에서 더 높은 가중치(3배)를 받습니다.
+
+## 제목 유사도 계산
+
+제목 비교를 위해 문자열 유사도를 측정하는 효과적인 방법인 [Dice-Sørensen 계수](https://en.wikipedia.org/wiki/Dice-S%C3%B8rensen_coefficient) 알고리즘을 구현했습니다. 다음은 구현 코드입니다:
+
+```ts title="dice-coefficient.ts" twoslash
+// Dice 계수 알고리즘을 기반으로 두 문자열 간의 유사도를 찾습니다.
+// @see https://github.com/aceakash/string-similarity/blob/master/src/index.js
+
+function removeWhitespace(str: string): string {
+  return str.replace(/\s+/g, "");
+}
+
+function createBigrams(str: string): Map<string, number> {
+  const bigrams = new Map<string, number>();
+  for (let i = 0; i < str.length - 1; i++) {
+    const bigram = str.substring(i, i + 2);
+    const count = bigrams.has(bigram) ? bigrams.get(bigram)! + 1 : 1;
+
+    bigrams.set(bigram, count);
+  }
+  return bigrams;
+}
+
+function getIntersectionSize(
+  first: Map<string, number>,
+  second: Map<string, number>
+): number {
+  let intersectionSize = 0;
+  for (const [bigram, count] of second) {
+    if (first.has(bigram)) {
+      intersectionSize += Math.min(count, first.get(bigram)!);
+    }
+  }
+  return intersectionSize;
+}
+
+export function compareTwoStrings(str1: string, str2: string): number {
+  const first = removeWhitespace(str1);
+  const second = removeWhitespace(str2);
+
+  if (first === second) return 1;
+  if (first.length < 2 || second.length < 2) return 0;
+
+  const firstBigrams = createBigrams(first);
+  const secondBigrams = createBigrams(second);
+
+  const intersectionSize = getIntersectionSize(firstBigrams, secondBigrams);
+
+  return (2.0 * intersectionSize) / (first.length + second.length - 2);
+}
+```
+
+이 알고리즘은 문자열에서 바이그램(연속된 문자 쌍)을 생성하고 겹치는 부분을 비교하여 0과 1 사이의 유사도 점수를 제공합니다.
+
+태그 매칭과 제목 유사도의 조합은 관련 포스트 기능이 주제적으로 관련성이 있고 현재 포스트와 문맥적으로 유사한 콘텐츠를 제안하도록 보장합니다. 이 구현은 효율적이며 Astro 기반 블로그나 콘텐츠 웹사이트에 쉽게 통합할 수 있습니다.
