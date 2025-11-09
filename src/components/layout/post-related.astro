@@ -17,7 +17,7 @@ const { relatedPosts } = Astro.props;
           return (
             <li>
               <span class="font-mono">&gt; </span>
-              <a class="link text-text-1" href={`/posts/${p.slug}`}>
+              <a class="link text-text-1" href={`/posts/${p.data.slug}`}>
                 {p.data.title}
               </a>
             </li>

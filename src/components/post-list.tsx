@@ -1,14 +1,14 @@
+import type { CollectionEntry } from "astro:content";
 import { format } from "date-fns";
 import { useState } from "react";
 import { CloseIcon } from "~/components/ui/icons";
-import type { PostData } from "~/lib/types";
 import { cn } from "~/lib/utils";
 
 export default function PostList({
   posts,
   tags,
 }: {
-  posts: PostData[];
+  posts: CollectionEntry<"posts">[];
   tags: string[];
 }) {
   const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined);
@@ -83,9 +83,9 @@ function TagFilter({
   );
 }
 
-function PostYearList({ posts }: { posts: PostData[] }) {
+function PostYearList({ posts }: { posts: CollectionEntry<"posts">[] }) {
   const yearList = Object.entries(
-    posts.reduce<{ [year: string]: PostData[] }>((ac, post) => {
+    posts.reduce<{ [year: string]: CollectionEntry<"posts">[] }>((ac, post) => {
       const year = new Date(post.data.created).getFullYear();
       if (!ac[year]) ac[year] = [];
       ac[year].push(post);
