@@ -2,13 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { LinkIcon, MaterialCheckIcon } from '~/components/ui/icons';
 import { cn } from '~/lib/utils';
 
-export default function CopyLink({
-  href,
-  className,
-}: {
-  href?: string;
-  className?: string;
-}) {
+export default function CopyLink({ href, className }: { href?: string; className?: string }) {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -31,12 +25,7 @@ export default function CopyLink({
   return (
     <button className={cn('relative', className)} onClick={onClick}>
       <span className="sr-only">{isClicked ? 'copied' : 'copy'}</span>
-      <MaterialCheckIcon
-        className={cn(
-          'absolute opacity-0 transition',
-          isClicked && 'opacity-100',
-        )}
-      />
+      <MaterialCheckIcon className={cn('absolute opacity-0 transition', isClicked && 'opacity-100')} />
       <LinkIcon className={cn('transition', isClicked && 'opacity-0')} />
     </button>
   );

@@ -1,20 +1,20 @@
 ---
 import { format } from 'date-fns';
+import type {  Post } from '~/lib/types';
 
 interface Props {
   class?: string;
-  title: string;
-  date: Date | string | number;
+  data : Post
   readingTime?: string;
 }
 
-const { class: className, title, date, readingTime } = Astro.props;
+const { class: className, data, readingTime } = Astro.props;
 ---
 
 <div class={className}>
-  <h1 class="font-display text-5xl font-bold">{title}</h1>
+  <h1 class="font-display text-5xl font-bold">{data.title}</h1>
   <div class="text-text-2">
-    <span>{format(date, 'MMM dd, yyyy')}</span>
+    <span>{format(data.created, 'MMM dd, yyyy')}</span>
     {readingTime && <span>· {readingTime}</span>}
   </div>
 </div>

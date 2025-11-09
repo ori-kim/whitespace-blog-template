@@ -1,30 +1,32 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { compareTwoStrings } from '~/lib/dice-coefficient';
-import { isProd } from '~/lib/utils';
+import { type CollectionEntry, getCollection } from "astro:content";
+import { compareTwoStrings } from "~/lib/dice-coefficient";
+import { isProd } from "~/lib/utils";
 
-export const isDraft = (post: CollectionEntry<'posts'>) => {
+export const isDraft = (post: CollectionEntry<"posts">) => {
   return isProd && post.data.draft;
 };
 
 export const sortCollectionDateDesc = (
-  a: CollectionEntry<'posts'>,
-  b: CollectionEntry<'posts'>,
+  a: CollectionEntry<"posts">,
+  b: CollectionEntry<"posts">
 ) => {
-  return new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf();
+  return (
+    new Date(b.data.created).valueOf() - new Date(a.data.created).valueOf()
+  );
 };
 
 export const getPostsCollection = async () => {
-  return (await getCollection('posts'))
+  return (await getCollection("posts"))
     .filter((post) => !isDraft(post))
     .sort(sortCollectionDateDesc);
 };
 
 export const getRelatedPosts = (
-  post: CollectionEntry<'posts'>,
-  postList: CollectionEntry<'posts'>[],
+  post: CollectionEntry<"posts">,
+  postList: CollectionEntry<"posts">[]
 ) => {
   return postList
-    .filter((p) => p.slug !== post.slug)
+    .filter((p) => p.data.slug !== post.data.slug)
     .map((p) => {
       const tagPoint = post.data.tags
         ? post.data.tags.filter((tag) => p.data.tags?.includes(tag)).length
@@ -40,14 +42,13 @@ export const getRelatedPosts = (
     .slice(0, 4);
 };
 
-export const getTags = (postList: CollectionEntry<'posts'>[]) => {
+export const getTags = (postList: CollectionEntry<"posts">[]) => {
   return [
     ...new Set(
       postList
-        .map((post) => post.data.tags)
-        .flat()
+        .flatMap((post) => post.data.tags)
         .filter((post): post is string => Boolean(post))
-        .toSorted(),
+        .toSorted()
     ),
   ];
 };

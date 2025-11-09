@@ -1,9 +1,9 @@
 ---
 import { cfg } from '~/cfg';
-import BaseLayout from '~/components/layout/base-layout.astro';
 import BaseBio from '~/components/layout/base-bio.astro';
-import { getPostsCollection, getTags } from '~/lib/mdx/post';
+import BaseLayout from '~/components/layout/base-layout.astro';
 import PostList from '~/components/post-list';
+import { getPostsCollection, getTags } from '~/lib/mdx/post';
 
 const posts = await getPostsCollection();
 const tags = getTags(posts);

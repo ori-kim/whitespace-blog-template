@@ -66,7 +66,7 @@
   margin: -1rem 0 0;
   font-size: 1.5rem;
   color: var(--c-text-3);
-  content: '* * *';
+  content: "* * *";
 }
 
 /* ================================================== */
@@ -117,12 +117,12 @@
   justify-content: flex-end;
   min-width: var(--counter-space);
   margin-right: var(--counter-space);
-  font-feature-settings: 'tnum' 1;
+  font-feature-settings: "tnum" 1;
   line-height: normal;
   color: var(--c-gray-2);
   text-align: right;
   letter-spacing: -0.05em;
-  content: counter(basics-ol) '. ';
+  content: counter(basics-ol) ". ";
   counter-increment: basics-ol;
   user-select: none;
 }
@@ -156,12 +156,12 @@
   word-break: keep-all;
 }
 
-.mdx [data-align='center'] th,
-.mdx [data-align='center'] td {
+.mdx [data-align="center"] th,
+.mdx [data-align="center"] td {
   text-align: center;
 }
-.mdx [data-align='right'] th,
-.mdx [data-align='right'] td {
+.mdx [data-align="right"] th,
+.mdx [data-align="right"] td {
   text-align: right;
 }
 
@@ -204,7 +204,7 @@
   --code-copy-code-hover-border-color: var(--c-divider);
   --code-copy-code-hover-bg: var(--c-bg);
   --code-copy-code-active-text: var(--c-text-2);
-  --code-copy-copied-text-content: 'Copied';
+  --code-copy-copied-text-content: "Copied";
 }
 
 .dark .mdx {
@@ -278,14 +278,14 @@
 }
 .astro-code .diff.remove:before {
   color: var(--code-line-diff-remove-symbol-color);
-  content: '-';
+  content: "-";
 }
 .astro-code .diff.add {
   background-color: var(--code-line-diff-add-color);
 }
 .astro-code .diff.add:before {
   color: var(--code-line-diff-add-symbol-color);
-  content: '+';
+  content: "+";
 }
 
 .astro-code.has-focused .line:not(.focused) {
@@ -429,7 +429,7 @@
   margin-bottom: 6px;
   margin-left: 4px;
   vertical-align: middle;
-  content: '';
+  content: "";
   background-image: var(--ico-anchor);
   background-repeat: no-repeat;
   opacity: 0;

@@ -16,10 +16,7 @@ function createBigrams(str: string): Map<string, number> {
   return bigrams;
 }
 
-function getIntersectionSize(
-  first: Map<string, number>,
-  second: Map<string, number>,
-): number {
+function getIntersectionSize(first: Map<string, number>, second: Map<string, number>): number {
   let intersectionSize = 0;
   for (const [bigram, count] of second) {
     if (first.has(bigram)) {

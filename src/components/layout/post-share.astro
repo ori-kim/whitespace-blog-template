@@ -1,12 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import CopyLink from '~/components/ui/copy-link';
-import {
-  BlueskyIcon,
-  LinkedInIcon,
-  RedditIcon,
-  XformerlyTwitterIcon,
-} from '~/components/ui/icons';
+import { BlueskyIcon, LinkedInIcon, RedditIcon, XformerlyTwitterIcon } from '~/components/ui/icons';
 import { cn } from '~/lib/utils';
 
 interface Props {
@@ -19,29 +14,10 @@ const { post, class: className } = Astro.props;
 const socials = [
   {
     type: 'link',
-    Icon: BlueskyIcon,
-    url: `https://bsky.app/intent/compose?text=${encodeURIComponent(
-      `${post.data.title} by @todo\n\n ${Astro.url}`,
-    )}`,
-  },
-  {
-    type: 'link',
-    Icon: XformerlyTwitterIcon,
-    url: `https://twitter.com/intent/tweet/?text=${encodeURIComponent(
-      `${post.data.title} by @todo\n\n ${Astro.url}`,
-    )}`,
-  },
-  {
-    type: 'link',
     Icon: LinkedInIcon,
     url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
       `${Astro.url}`,
     )}&title=${encodeURIComponent(`${post.data.title}`)}`,
-  },
-  {
-    type: 'link',
-    Icon: RedditIcon,
-    url: `https://reddit.com/submit/?url=${encodeURIComponent(`${Astro.url}`)}`,
   },
   {
     type: 'CopyLink',
@@ -50,7 +26,7 @@ const socials = [
 ---
 
 <div class={cn('', className)}>
-  <p class="text-text-2 text-center">Share this article with your friends</p>
+  <p class="text-text-2 text-center">Share this article</p>
   <div class="mt-1 flex flex-wrap items-center justify-center gap-1">
     {
       socials.map((social) => {

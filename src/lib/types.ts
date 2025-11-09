@@ -1,4 +1,4 @@
-import { z } from 'astro:schema';
+import { z } from "astro:schema";
 
 export interface SEO {
   title?: string;
@@ -9,11 +9,15 @@ export interface SEO {
 export const postSchema = z.object({
   title: z.string(),
   description: z.string(),
-  date: z.coerce.date(),
-  updatedDate: z.coerce.date().optional(),
+  image: z.string().optional(),
+  created: z.coerce.date(),
+  updated: z.coerce.date().optional(),
   tags: z.array(z.string()).optional(),
   draft: z.boolean().optional(),
+  series: z.array(z.string()).optional(),
+  slug: z.string(),
 });
+
 export type Post = z.infer<typeof postSchema>;
 
 // to not importing CollectionEntry from astro:content
@@ -21,6 +25,6 @@ export type PostData = {
   id: string;
   slug: string;
   body: string;
-  collection: 'posts';
+  collection: "posts";
   data: Post;
 };

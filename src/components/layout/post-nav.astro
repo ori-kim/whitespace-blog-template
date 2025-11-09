@@ -17,7 +17,7 @@ const { prevPost, nextPost, class: className } = Astro.props;
       prevPost && (
         <>
           <p class="text-text-2">Previous</p>
-          <a class="link" href={`/posts/${prevPost.slug}`}>
+          <a class="link" href={`/posts/${prevPost.data.slug}`}>
             {prevPost.data.title}
           </a>
         </>
@@ -29,7 +29,7 @@ const { prevPost, nextPost, class: className } = Astro.props;
       nextPost && (
         <>
           <p class="text-text-2">Next</p>
-          <a class="link" href={`/posts/${nextPost.slug}`}>
+          <a class="link" href={`/posts/${nextPost.data.slug}`}>
             {nextPost.data.title}
           </a>
         </>

@@ -1,9 +1,9 @@
 ---
 import { cfg } from '~/cfg';
-import type { SEO } from '~/lib/types';
-import ThemeHeadScript from '~/components/script/theme-head-script.astro';
 import BaseFont from '~/components/layout/base-font.astro';
 import AnalyticsScript from '~/components/script/analytics-script.astro';
+import ThemeHeadScript from '~/components/script/theme-head-script.astro';
+import type { SEO } from '~/lib/types';
 
 export type Props = {
   seo?: SEO;
@@ -11,16 +11,11 @@ export type Props = {
 
 const { seo = {} } = Astro.props;
 
-const title =
-  seo.title && cfg.titleTemplate
-    ? cfg.titleTemplate.replace('%s', seo.title)
-    : cfg.title;
+const title = seo.title && cfg.titleTemplate ? cfg.titleTemplate.replace('%s', seo.title) : cfg.title;
 const description = seo.description ?? cfg.description;
 
 const ogImage = seo.ogImage ?? cfg.ogImage;
-const ogImageURL = ogImage?.startsWith('/')
-  ? new URL(ogImage, Astro.url).toString()
-  : ogImage;
+const ogImageURL = ogImage?.startsWith('/') ? new URL(ogImage, Astro.url).toString() : ogImage;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
