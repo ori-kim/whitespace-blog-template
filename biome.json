@@ -28,5 +28,28 @@
       "arrowParentheses": "always",
       "bracketSpacing": true
     }
-  }
+  },
+  "html": {
+    "experimentalFullSupportEnabled": true,
+    "formatter": {
+      "indentScriptAndStyle": true
+    }
+  },
+  "overrides": [
+    {
+      "include": ["*.astro", "*.svelte", "*.vue"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          },
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ]
 }
